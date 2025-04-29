@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { ApiService } from '../services/api.service';
 
 @Component({
   selector: 'app-recipie-component',
@@ -9,12 +10,35 @@ import { Component } from '@angular/core';
 })
 export class RecipieComponentComponent {
 
-   isOpen:boolean=false
-  onClick(){
+  recipesArray:any=[]
 
-    this.isOpen=!this.isOpen
+  cuisineArray:any=[]
 
+  constructor(private api:ApiService){}
 
+  ngOnInit(){
+    this.getAllRecipe()
   }
 
+
+  getAllRecipe(){
+    
+    this.api.getAllRecipie().subscribe((res)=>{
+      this.recipesArray=res
+      console.log(this.recipesArray);
+
+      this.recipesArray.forEach((item:any) => {
+       !this.cuisineArray.includes(item.cuisine)&& this.cuisineArray.push(item.cuisine)
+        console.log(this.cuisineArray);
+        
+        
+      });
+
+      
+
+      
+    })
+  }
+
+ 
 }

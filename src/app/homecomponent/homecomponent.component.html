@@ -28,17 +28,20 @@
         <p>Our Most popular recipes of the week</p>
     </div>
     <div>
-        <a href="">View All</a>
+        <a routerLink="/allrecipe">View All</a>
     </div>
   </div>
+ @for (recipie of recipieArray; track $index) {
+
   <div class="mt-2">
     <div class="card" style="width: 16rem; border:0;">
-        <img src="https://cdn.dummyjson.com/recipe-images/16.webp" class="card-img-top" alt="...">
+        <img src={{recipie.image}} class="card-img-top" alt="...">
         <div class="card-body">
-          <h5 class="card-title">Japanese Ramen Soup lg</h5>
+          <h5 class="card-title">{{recipie.name}}</h5>
         
         </div>
       </div>
   </div>
+ }
 
 </div>
