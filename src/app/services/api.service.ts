@@ -12,4 +12,12 @@ export class ApiService {
   getAllRecipie(){
     return this.http.get(`${this.server_url}/getallrecipe`)
   }
+
+  addTestimony(reqBody:any){
+    return  this.http.post(`${this.server_url}/addtestimony`,reqBody)
+  }
+
+  register(reqBody:any){
+    return this.http.post(`${this.server_url}/register`,reqBody)
+  }
 }

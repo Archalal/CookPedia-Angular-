@@ -13,7 +13,10 @@
    </div>
    <div class="row">
     <div class="col-4">
-        <a href="" style="text-decoration: none; color: black; display: block;">All </a>
+    
+        <a 
+        class="btn"
+        (click)="getAllRecipe()" style="text-decoration: none; color: black; display: block;">All </a>
         <!-- <a>Cuisine Type <i class="fa-solid fa-caret-down"></i></a> -->
        
         <p>
@@ -26,7 +29,11 @@
           <div >
             <div class="d-flex flex-wrap  w-30 gap-2 ">
           @for (cuisine of cuisineArray; track $index) {
-            <button class="btn">{{cuisine}}</button>
+
+            <button 
+            (click)="filterRecipes('cuisine',cuisine)"
+            
+            class="btn">{{cuisine}}</button>
           }
               <!-- <p>Greek</p>
               <p>Russian</p>
@@ -52,31 +59,39 @@
 
 
         <p>
-          <a class="btn btn-primary" data-bs-toggle="collapse"  role="button" aria-expanded="false" aria-controls="collapseExample">
+          <a class="btn btn-primary" data-bs-toggle="collapse" href="#mealTypeCollapse" role="button" aria-expanded="false" aria-controls="collapseExample">
             Meal Type
           </a>
-         
         </p>
-        <div class="collapse" id="collapseExample">
-          <div >
-            <div class="d-flex flex-wrap  w-30 gap-2 ">
-              
-                <p>Dinner</p>
-                <p>Lunch</p>
-                <p>Appetizer</p>
-                <p>Snacks</p>
-                <p>Dessert</p>
-                <p>Beverage</p>
-                <p>Snack</p>
-                <p>Side Dish</p>
-                <p>Breakfast</p>
-              </div>
-              
-            
-            
+        
+        <div class="collapse" id="mealTypeCollapse">
+          <div class="card card-body">
+            <div class="d-flex flex-wrap gap-2">
+              <div class="d-flex flex-wrap  w-30 gap-2 ">
+                @for (meal of mealArray; track $index) {
+                  <button  (click)="filterRecipes('mealType',meal)"
+                  class="btn">{{meal}}</button>
+                }
+                    <!-- <p>Greek</p>
+                    <p>Russian</p>
+                    <p>Asian</p>
+                    <p>Italian</p>
+                    <p>Brazilian</p>
+                    <p>Moroccan</p>
+                    <p>Korean</p>
+                    <p>Mexican</p>
+                    <p>American</p>
+                    <p>Indian</p>
+                    <p>Smoothie</p>
+                    <p>Mediterranean</p>
+                    <p>Thai</p>
+                    <p>Turkish</p>
+                    <p>Lebanese</p> -->
+                  </div>
+            </div>
           </div>
         </div>
-
+        
 
 
 
@@ -87,7 +102,7 @@
 
     </div>
     <div class="col-8">
-        @for (recipie of recipesArray; track $index) {
+        @for (recipie of recipesArray |paginate: { itemsPerPage: 8, currentPage: p } ; track $index)  {
           <div class="mt-2">
             <div class="card" style="width: 14rem; border:0;">
                 <img src={{recipie.image}} class="card-img-top" alt="...">
@@ -100,5 +115,6 @@
           </div>
         }
     </div>
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
    </div>
 </div>

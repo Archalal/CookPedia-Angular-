@@ -24,9 +24,11 @@
     ">Cookpedia</h2>
    
     
-    <form>
+    <form  [formGroup]="registerForm" (ngSubmit)="onRegister()" >
         <div style="margin-bottom: 20px;">
             <input 
+            formControlName="username" 
+            name="username"
               type="text" 
               placeholder="UserName"
               style="
@@ -40,6 +42,8 @@
           </div>
       <div style="margin-bottom: 20px;">
         <input 
+        formControlName="email"
+         
           type="email" 
           placeholder="Email Address"
           style="
@@ -54,6 +58,7 @@
       
       <div style="margin-bottom: 25px;">
         <input 
+        formControlName="password" 
           type="password" 
           placeholder="Password"
           style="
