@@ -11,6 +11,11 @@ import { ProfileComponentComponent } from './profile-component/profile-component
 
 export const routes: Routes = [
 
+  {path:'admin',loadChildren:()=>import('./admin/admin.module').then(
+    m=>m.AdminModule)
+
+  },
+
   { path: '', component: HomecomponentComponent ,title:"Home"},
   { path: 'about', component: AboutComponentComponent,title:"About" },
   { path: 'contact', component: ContactComponentComponent ,title:"Contact"},
