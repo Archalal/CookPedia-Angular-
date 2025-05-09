@@ -25,4 +25,5 @@ export const routes: Routes = [
   { path: 'viewRecipe/:id', component: ViewRecipieComponentComponent ,title:"Recipie"},
   { path: 'savedRecipie', component: SavedRecipieComponentComponent ,title:"Saved Recipie"},
   { path: 'profile', component: ProfileComponentComponent,title:"Profile" },
+  
 ];
