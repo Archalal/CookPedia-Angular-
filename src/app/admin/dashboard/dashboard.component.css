@@ -1,0 +1,19 @@
+.card{
+    height: 120px;
+    align-items:center;
+    justify-content: center;
+    width: 200px;
+    border: none;
+}
+.card1{
+    background-color: aqua;
+}
+.card2{
+    background-color:aquamarine;
+}
+.card3{
+    background-color: violet;
+}
+.card4{
+    background-color: burlywood;
+}

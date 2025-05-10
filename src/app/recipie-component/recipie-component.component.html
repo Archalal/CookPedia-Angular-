@@ -8,7 +8,9 @@
     </div>
     <div class="col-4">
       
-        <input type="text" placeholder="Search your Recipie name here" style="width: 100%;" >
+        <input
+        [(ngModel)]="searchKey"
+         type="text" placeholder="Search your Recipie name here" style="width: 100%;" >
     </div>
    </div>
    <div class="row">
@@ -16,8 +18,8 @@
     
         <a 
         class="btn"
-        (click)="getAllRecipe()" style="text-decoration: none; color: black; display: block;">All </a>
-        <!-- <a>Cuisine Type <i class="fa-solid fa-caret-down"></i></a> -->
+        (click)="getAllRecipe()" style="text-decoration: none; color: black; display: inline;">All </a>
+       
        
         <p>
           <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
@@ -26,31 +28,19 @@
          
         </p>
         <div class="collapse" id="collapseExample">
-          <div >
-            <div class="d-flex flex-wrap  w-30 gap-2 ">
+          <div  class="d-flex  flex-wrap ">
+           
           @for (cuisine of cuisineArray; track $index) {
+             <div class="w-30 gap-2 ">
 
             <button 
             (click)="filterRecipes('cuisine',cuisine)"
             
             class="btn">{{cuisine}}</button>
-          }
-              <!-- <p>Greek</p>
-              <p>Russian</p>
-              <p>Asian</p>
-              <p>Italian</p>
-              <p>Brazilian</p>
-              <p>Moroccan</p>
-              <p>Korean</p>
-              <p>Mexican</p>
-              <p>American</p>
-              <p>Indian</p>
-              <p>Smoothie</p>
-              <p>Mediterranean</p>
-              <p>Thai</p>
-              <p>Turkish</p>
-              <p>Lebanese</p> -->
             </div>
+          }
+              
+            
             
           </div>
         </div>
@@ -72,21 +62,7 @@
                   <button  (click)="filterRecipes('mealType',meal)"
                   class="btn">{{meal}}</button>
                 }
-                    <!-- <p>Greek</p>
-                    <p>Russian</p>
-                    <p>Asian</p>
-                    <p>Italian</p>
-                    <p>Brazilian</p>
-                    <p>Moroccan</p>
-                    <p>Korean</p>
-                    <p>Mexican</p>
-                    <p>American</p>
-                    <p>Indian</p>
-                    <p>Smoothie</p>
-                    <p>Mediterranean</p>
-                    <p>Thai</p>
-                    <p>Turkish</p>
-                    <p>Lebanese</p> -->
+                   
                   </div>
             </div>
           </div>
@@ -101,9 +77,9 @@
 
 
     </div>
-    <div class="col-8">
-        @for (recipie of recipesArray |paginate: { itemsPerPage: 8, currentPage: p } ; track $index)  {
-          <div class="mt-2">
+    <div class="col-8 d-flex flex-wrap gap-3">
+       @for (recipie of recipesArray | search : searchKey | paginate: { itemsPerPage: 8, currentPage: p }; track $index) {
+          <div class="mt-2 ">
             <div class="card" style="width: 14rem; border:0;">
                 <img src={{recipie.image}} class="card-img-top" alt="...">
                 <div class="card-body">

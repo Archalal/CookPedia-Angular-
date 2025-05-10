@@ -10,5 +10,16 @@ import { FooterComponent } from "./footer/footer.component";
   styleUrl: './app.component.css'
 })
 export class AppComponent {
+
+  isAdmin:boolean=true
+  
+
   title = 'cookpedia';
+  getUser(){
+    let val =JSON.parse(sessionStorage.getItem('user')||"");
+    if(val.userType=="admin"){
+      this.isAdmin=true
+    }
+
+  }
 }

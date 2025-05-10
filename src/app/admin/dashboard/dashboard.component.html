@@ -1,8 +1,78 @@
 <div class="row">
-    <div class="col-2">
-        <app-sidebar></app-sidebar>
-    </div>
-    <div class="col-10">
-        dashboard
+    
+        @if (isSideBaropen) {
+            <div class="col-2">
+             <app-sidebar></app-sidebar>
+              </div>
+
+        }
+       
+   
+    <div [class]="dashboarClass">
+      <div class="row bg-warning lext-light p-3 ">
+       <div class="d-flex justify-content-between">
+         <h1 class="text-light"><button (click)="onMenuClick()" class="btn"><i class="fa-solid fa-bars text-light"></i></button>
+        Welcome To Admin Dashboard</h1>
+<div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+     <i class="fa-solid fa-user text-light fs-2"></i>
+  </button>
+  <ul class="dropdown-menu">
+     <button class="dropdown-item " (click)="logout()">Logout</button>
+   
+  </ul>
+</div>
+        <!-- <div class="dropdown">
+         <button class="btn  dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <i class="fa-solid fa-user text-light fs-2"></i>
+        </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <button class="dropdown-item " (click)="logout()">Logout</button>
+            
+            </div>
+      </div> -->
+       </div>
+
+      </div>
+      <section>
+        <div class="d-flex justify-content-evenly mt-3">
+            <div class="card card1">
+                <div class="row">
+                    <div class="col"><i class="fa-solid fa-users"></i></div>
+                    <div class="col">
+                        <h4>Users</h4>
+                        <p>{{userNumber}}</p>
+                    </div>
+                </div>
+            </div>
+             <div class="card card2">
+               <div class="row">
+                    <div class="col"><i class="fa-solid fa-users"></i></div>
+                    <div class="col">
+                        <h4>Recipie</h4>
+                        <p>{{recipieNumber}}</p>
+                    </div>
+                </div>
+            </div>
+             <div class="card card3">
+               <div class="row">
+                    <div class="col"><i class="fa-solid fa-bowl-food"></i></div>
+                    <div class="col">
+                        <h4>Downloads</h4>
+                        <p>2</p>
+                    </div>
+                </div>
+            </div>
+             <div class="card card4">
+               <div class="row">
+                    <div class="col"><i class="fa-solid fa-message"></i></div>
+                    <div class="col">
+                        <h4>FeedBack</h4>
+                        <p>1</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </section>
     </div>
 </div>

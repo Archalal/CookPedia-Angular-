@@ -6,14 +6,14 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class SearchPipe implements PipeTransform {
  
 
-  transform(recipesArray:any=[],searchKey:string): any[] {
+  transform(recipesArray:any[],searchKey:string): any[] {
     let  result:any=[]
-    if(recipesArray || searchKey==""){
+    if(!recipesArray || searchKey==""){
       return recipesArray
 
     }
 
-    result=recipesArray.filter((eachRecipie:any)=>eachRecipie.name.includes(searchKey.toLocaleLowerCase()))
+    result=recipesArray.filter((eachRecipie:any)=>eachRecipie.name.toLowerCase().includes(searchKey.toLowerCase()))
     return result;
   }
 

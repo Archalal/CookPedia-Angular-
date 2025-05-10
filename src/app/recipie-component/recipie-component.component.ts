@@ -3,10 +3,11 @@ import { Component } from '@angular/core';
 import { ApiService } from '../services/api.service';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { SearchPipe } from '../pipes/search.pipe';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-recipie-component',
-  imports: [CommonModule,NgxPaginationModule,SearchPipe],
+  imports: [CommonModule,NgxPaginationModule,SearchPipe,FormsModule],
   templateUrl: './recipie-component.component.html',
   styleUrl: './recipie-component.component.css'
 })
@@ -19,6 +20,7 @@ export class RecipieComponentComponent {
   mealArray:any=[]
   keydummyArray:any=[]
   p: string|number|undefined;
+   searchKey: string="";
 
   constructor(private api:ApiService){}
 
