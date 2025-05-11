@@ -12,11 +12,17 @@ export class HomecomponentComponent implements OnInit {
   
 
   recipieArray:any=[]
+  
 
   constructor(private api:ApiService){}
   ngOnInit(): void {
     this.allRecipie()
-  }
+    
+    
+    
+   }
+    
+  
 
   allRecipie(){
     this.api.getAllRecipie().subscribe((res:any)=>{

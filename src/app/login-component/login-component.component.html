@@ -24,9 +24,11 @@
     ">Login</h2>
     <p style="text-align: center;">More than 100 plus Recipes from around the world</p>
     
-    <form>
+    <form [formGroup]="loginform" (ngSubmit)="login()">
       <div style="margin-bottom: 20px;">
         <input 
+        name="email"
+        formControlName="email"
           type="email" 
           placeholder="Email Address"
           style="
@@ -38,9 +40,15 @@
           "
         >
       </div>
+      @if (loginform.get('email')?.errors&&loginform.touched) {
+         <div class="text-danger fw-bold"><p>Invalid Email</p></div>
+      }
+     
       
       <div style="margin-bottom: 25px;">
         <input 
+        name="password"
+        formControlName="password"
           type="password" 
           placeholder="Password"
           style="
@@ -52,8 +60,14 @@
           "
         >
       </div>
+       @if (loginform.get('password')?.errors&&loginform.touched) {
+         <div class="text-danger fw-bold"><p>Invalid password</p></div>
+      }
+     
       
       <button 
+      (click)="login()"
+
         type="submit"
         style="
           width: 100%;

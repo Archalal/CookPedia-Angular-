@@ -20,6 +20,9 @@ export class ApiService {
   register(reqBody:any){
     return this.http.post(`${this.server_url}/register`,reqBody)
   }
+  login(reqBody:any){
+    return this.http.post(`${this.server_url}/login`,reqBody)
+  }
   getAllUser(){
     return this.http.get(`${this.server_url}/allusers`)
   }
