@@ -58,10 +58,6 @@ export class RecipieComponentComponent {
         console.log(this.mealArray);
         
       
-      
-   
-      
-      
 
       
     })

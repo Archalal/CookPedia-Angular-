@@ -9,6 +9,7 @@ import { ApiService } from '../../services/api.service';
 })
 export class RecipelistComponent {
   recipieArray:any=[]
+  searchKey:string=""
 
   constructor(private api:ApiService){}
   ngOnInit(){
@@ -20,6 +21,12 @@ export class RecipelistComponent {
       this.recipieArray=res
 
 
+    })
+  }
+  deleteRecipie(id:string){
+    this.api.deleteRecipie(id).subscribe((res)=>{
+      alert("succesfully deleteed")
+      this.getRecipe()
     })
   }
 

@@ -10,6 +10,8 @@ import { FeedbacklistComponent } from './feedbacklist/feedbacklist.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { AddrecipieComponent } from './addrecipie/addrecipie.component';
 import { RecipieeditComponent } from './recipieedit/recipieedit.component';
+import { SearchPipe } from '../pipes/search.pipe';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -25,7 +27,11 @@ import { RecipieeditComponent } from './recipieedit/recipieedit.component';
   ],
   imports: [
     CommonModule,
-    AdminRoutingModule
+    AdminRoutingModule,
+    SearchPipe,
+    FormsModule
   ]
 })
-export class AdminModule { }
+export class AdminModule {
+
+ }

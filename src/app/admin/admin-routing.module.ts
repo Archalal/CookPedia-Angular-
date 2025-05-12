@@ -15,7 +15,7 @@ const routes: Routes = [
   {path:"userlist",component:UserlistComponent,title:"User List"},
   {path:"download",component:DownloadlistComponent,title:"User List"},
   {path:"feedbacklist",component:FeedbacklistComponent,title:"FeedBack List"},
-  {path:"recipe/add",component:AddrecipieComponent,title:"FeedBack List"},
+  {path:"recipe/add",component:RecipieeditComponent,title:"FeedBack List"},
   {path:"recipe/:id/edit",component:RecipieeditComponent,title:"FeedBack List"},
 
 ];
