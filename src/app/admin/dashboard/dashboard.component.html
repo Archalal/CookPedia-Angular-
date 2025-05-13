@@ -22,15 +22,7 @@
    
   </ul>
 </div>
-        <!-- <div class="dropdown">
-         <button class="btn  dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <i class="fa-solid fa-user text-light fs-2"></i>
-        </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <button class="dropdown-item " (click)="logout()">Logout</button>
-            
-            </div>
-      </div> -->
+       
        </div>
 
       </div>
@@ -71,6 +63,22 @@
                         <p>1</p>
                     </div>
                 </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-8">
+                <highcharts-chart 
+                [Highcharts]="Highcharts"
+                [options]="chartOptions"
+
+                style="width: 100%; height: 400px; display: block;"
+></highcharts-chart>
+            </div>
+            <div class="col-4 mt-4">
+                <mat-card class="demo-inline-calendar-card w-75">
+  <mat-calendar [(selected)]="selected"></mat-calendar>
+</mat-card>
+<!-- <p>Selected date: {{selected()}}</p> -->
             </div>
         </div>
       </section>

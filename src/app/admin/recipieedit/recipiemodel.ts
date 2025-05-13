@@ -1,7 +1,7 @@
 export class recipieModel{
 
     name ?:string
-    ingedients ?:Array<string>
+    ingredients ?:Array<string>
     instructions ?:Array<string>
     prepTimeMinutes ?:number
     cookTimeMinutes ?:number
@@ -9,6 +9,6 @@ export class recipieModel{
     difficulty ?:string
     cuisine ?:string
     caloriesPerServing ?:string
-    iamge ?:string
+    image ?:string
     mealType ?:Array<string>
 }

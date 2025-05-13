@@ -37,7 +37,7 @@
                     <td>{{item.cuisine}}</td>
                     <td>
                       <div class="d-flex justify-content-evenly ">
-                        <div> <button class="btn"> <i class="fa-solid fa-pen-to-square p-1"></i></button></div>
+                        <div> <button routerLink="/admin/recipe/{{item._id}}/edit" class="btn"> <i class="fa-solid fa-pen-to-square p-1"></i></button></div>
                      <div>  <button (click)="deleteRecipie(item._id)" class="btn" ><i class=" fa-solid fa-trash p-1 text-danger" ></i></button></div>
                       </div>
                     </td>

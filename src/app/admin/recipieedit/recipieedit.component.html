@@ -3,15 +3,23 @@
         <app-sidebar></app-sidebar>
     </div>
     <div class="col-10">
-        <h3 class="mt-3 text-center fw-bold text-primary">Add Recipe Details</h3>
+        @if(id){
+             <h3 class="mt-3 text-center fw-bold text-primary">Update Recipe Details</h3>
+
+        }@else {
+             <h3 class="mt-3 text-center fw-bold text-primary">Add Recipe Details</h3>
+
+        }
+       
         <div class="d-flex justify-content-center mt-4">
             <div class="border shadow p-4 bg-white rounded-3" style="width: 80%; max-width: 800px;">
                 <div class="row mt-4">
+                    <img [src]="newRecipieArray.image" alt="" height="100px" width="100px">
                    
                     <div class="col-6 pe-3">
                         <input type="text" [(ngModel)]="newRecipieArray.name" placeholder="Recipe name" class="w-100 mb-3 p-2 border border-secondary rounded-3 fs-6">
                         <input type="text" [(ngModel)]="newRecipieArray.prepTimeMinutes"   placeholder="Recipe Preparation Time in Minutes"  class="w-100 mb-3 p-2 border border-secondary rounded-3 fs-6">
-                        <input type="text" [(ngModel)]="newRecipieArray.iamge"  placeholder="Recipe Image URL" class="w-100 mb-3 p-2 border border-secondary rounded-3 fs-6" >
+                        <input type="text" [(ngModel)]="newRecipieArray.image"  placeholder="Recipe Image URL" class="w-100 mb-3 p-2 border border-secondary rounded-3 fs-6" >
                         <label class="d-block mb-2 fw-medium text-muted">
                             Choose Cuisine Type
                             <select  [(ngModel)]="newRecipieArray.cuisine" name="cuisine" id="" class="w-100 mb-3 p-2 border border-secondary rounded-3 fs-6" >
@@ -30,7 +38,7 @@
                              text  placeholder="Add Recipe Ingredients"  class="w-100 mb-3 p-2 border border-secondary rounded-3 fs-6"></textarea>
                             <button (click)="addIngredients(ingredient)" class="btn btn-primary px-3 rounded-3 fs-5">+</button>
                         </div>
-                        <div class="d-flex align-items-center mb-2">
+                        <div class=" align-items-center mb-2">
              @for (item of ingredients; track $index) {
                  <input
                 [value]="item"
@@ -65,7 +73,7 @@
                           
                             <button  (click)="addInstruction(instruct)" class="btn btn-primary px-3 rounded-3 fs-5">+</button>
                         </div>
-                                        <div class="d-flex align-items-center mb-2">
+                                        <div class=" align-items-center mb-2">
                             @for (item of instruction; track $index) {
                                 <input
                                 [value]="item"
@@ -81,9 +89,20 @@
                     </div>
 
                     
+                
+                </div>
                     <div class="mt-3 mb-4">
                         <h4 class="fw-semibold text-secondary">Choose Meal Type of the Recipe</h4>
+
+                        @if(id){
+                            @for (item of mealTypeArray; track $index) {
+                                <span class="ms-1 p-1">{{item}}</span>
+                                <button (click)="removeMealItem(item)"><i class="fa-solid fa-close text-danger"></i></button>
+
+                            }
+                        }
                         <div class="d-flex flex-wrap gap-3">
+                         
                             @for (item of mealArray; track $index) {
                                    <div class="form-check">
                                 <input
@@ -100,8 +119,12 @@
 
                    
                     <div class="text-center mt-4">
-                    <button  (click)="addRecipie()" class="btn btn-success px-4 py-2">Add Recipe</button>
-                </div>
+                    @if(id){
+                        <button  (click)="updateRecipie()" class="btn btn-warning px-4 py-2">Edit Recipe</button>
+
+                    }@else {
+                        <button  (click)="addRecipie()" class="btn btn-success px-4 py-2">Add Recipe</button>
+                    }
                 </div>
             </div>
         </div>

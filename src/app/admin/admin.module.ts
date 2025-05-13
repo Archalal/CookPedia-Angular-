@@ -12,6 +12,11 @@ import { AddrecipieComponent } from './addrecipie/addrecipie.component';
 import { RecipieeditComponent } from './recipieedit/recipieedit.component';
 import { SearchPipe } from '../pipes/search.pipe';
 import { FormsModule } from '@angular/forms';
+import { MatCardModule } from '@angular/material/card';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import {HighchartsChartModule} from 'highcharts-angular'
+
 
 
 @NgModule({
@@ -29,7 +34,12 @@ import { FormsModule } from '@angular/forms';
     CommonModule,
     AdminRoutingModule,
     SearchPipe,
-    FormsModule
+    FormsModule,
+    MatCardModule,
+    MatNativeDateModule,
+    MatDatepickerModule,
+    HighchartsChartModule
+    
   ]
 })
 export class AdminModule {

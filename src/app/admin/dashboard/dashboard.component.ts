@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { ApiService } from '../../services/api.service';
+import Highcharts from 'highcharts';
 
 @Component({
   selector: 'app-dashboard',
@@ -10,6 +11,38 @@ import { ApiService } from '../../services/api.service';
 })
 export class DashboardComponent {
   constructor(private route:Router, private api:ApiService){}
+  selected=new Date()
+  Highcharts: typeof Highcharts = Highcharts;
+  chartOptions:any={
+    chart: {
+    type: 'bar'
+  },
+  title: {
+    text: 'Analysis of Download Recipie Based on Cuisine'
+  },
+  xAxis:{
+    type:"category"
+  },
+  yAxis:{
+    title:{
+      text:"Total Download Recipie count"
+    }
+
+  },
+  credits: {
+    enabled: false
+  },
+  series:[{
+    name:"cuisine",
+    colorByPoint:true,
+    type:'bar',
+    data:[
+      {name:"Itialian",y:4},
+      {name:"Asia",y:2}
+    ]
+    
+  }]
+  }
 
   isSideBaropen:boolean=true
 

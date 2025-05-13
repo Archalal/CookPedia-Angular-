@@ -50,5 +50,9 @@ export class ApiService {
     return this.http.delete(`${this.server_url}/delete/${id}/recipie`,this.appendToken())
   }
   
+  updateRecipie(id:string,reqbody:any){
+     return this.http.put(`${this.server_url}/recipie/${id}/edit`,reqbody)
+   
+  }
 }
 
